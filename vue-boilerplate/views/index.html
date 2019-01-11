@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <div>
+      <header-ele>
+
+      </header-ele>
+
+      <button v-for="tab in tabs"
+              v-bind:key="tab"
+              v-bind:class="['tab-button', { active: currentTab === tab }]"
+              v-on:click="currentTab = tab">{{ tab }}</button>
+    </div>
+
+    <div>{{message}}</div>
+
+
+
+
+    <component v-bind:is="currentTabComponent"
+               class="tab"></component>
+  </div>
+
+
+
+  <script src="../components/archive/archive.js"></script>
+  <script src="../components/home/home.js"></script>
+  <script src="../components/post/post.js"></script>
+  <script src="../components/header/header.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
